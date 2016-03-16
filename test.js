@@ -3,6 +3,8 @@ var host = process.env.POSTGRES_SERVICE_SERVICE_HOST
 var port =  process.env.POSTGRES_SERVICE_SERVICE_PORT
 var conString = "postgres://mike:password@" + host +":" + port +"/test";
 
+console.log("connection string:" + conString);
+
 var client = new pg.Client(conString);
 client.connect();
 
