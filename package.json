@@ -1,0 +1,17 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "NodeJS Postgres",
+  "scripts": {
+    "start": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eformat/postgres-node"
+  },
+  "dependencies": {
+    "pg": "latest"
+  },
+  "devDependencies": {
+  }
+}
