@@ -15,6 +15,25 @@
     );
     GRANT ALL PRIVILEGES ON TABLE junk TO mike;
 
+**ensure postgres configured for access**
+
+    -- vi /var/lib/pgsql/data/postgresql.conf
+    
+    listen_addresses = '*'
+
+    -- allow local login (order matters)
+    -- vi /var/lib/pgsql/data/pg_hba.conf
+    
+    # access from OSE
+    host all all 192.168.136.0/24 md5
+    # "local" is for Unix domain socket connections only
+    local   all             all                                     md5
+    local   all             all                                     peer
+    # IPv4 local connections:
+    host    all             all             127.0.0.1/32            md5
+    host    all             all             127.0.0.1/32            ident
+
+
 **this sample node will connect and populate the test/junk db/table on OpenShift**
 
     oc new-project postgres-node --description="postgres-node" --display-name="postgres-node"
